@@ -11,7 +11,7 @@ The config is available for installation as a [public npm package](https://www.n
 ```
 git checkout master
 npm version patch # or "minor" or "major"
+git push
 git push --tags
 npm publish
 ```
-
