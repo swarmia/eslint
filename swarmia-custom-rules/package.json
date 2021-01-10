@@ -1,6 +1,0 @@
-{
-  "name": "eslint-plugin-swarmia-custom-rules",
-  "version": "0.0.1",
-  "description": "ESLint plugin for distributing Swarmia-specific custom rules",
-  "main": "index.js"
-}
