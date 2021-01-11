@@ -5,7 +5,7 @@ module.exports = {
     type: "problem",
     docs: {
       description:
-        "Prevents use of relative imports, and suggests absolute import paths as fixes",
+        "Prevents use of relative imports, and suggests non-relative import paths as fixes",
     },
     fixable: "code",
     schema: [], // this rule uses no options
@@ -19,7 +19,7 @@ module.exports = {
         .replace(context.getCwd() + "/", "");
       context.report({
         node,
-        message: `Replace relative import "${node.source.value}" with absolute import "${newPath}"`,
+        message: `Replace relative import "${node.source.value}" with "${newPath}"`,
         fix: (fixer) => fixer.replaceText(node.source, `'${newPath}'`),
       });
     },
