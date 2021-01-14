@@ -64,8 +64,6 @@ module.exports = {
      */
     node: {
       plugins: [
-        "react", // add React-specific rules
-        "react-hooks", // add rules that help follow https://reactjs.org/docs/hooks-rules.html
         "security", // TODO: Move to baseline
         "jest", // TODO: Move to baseline
       ],
