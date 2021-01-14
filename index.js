@@ -84,7 +84,7 @@ module.exports = {
         node: true,
       },
       rules: {
-        // TODO: Move to baseline:
+        // These could also be promoted to baseline, but we already seem to follow these rules without too much pain for "react" projects:
         "@typescript-eslint/no-explicit-any": 0,
         "@typescript-eslint/ban-types": 0,
       },
