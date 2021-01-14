@@ -14,12 +14,16 @@ module.exports = {
       plugins: [
         "@typescript-eslint", // add TypeScript-specific rules
         "prettier", // add Prettier as plugin, so we can use it via ESLint
+        "jest",
+        "security",
       ],
       extends: [
         "eslint:recommended", // start from the default ESLint config
         "plugin:@typescript-eslint/recommended", // add TypeScript-specific default config
         "prettier/@typescript-eslint", // disable TypeScript rules that would clash with how Prettier does formatting
         "plugin:prettier/recommended", // disable JavaScript rules that would clash with how Prettier does formatting
+        "plugin:jest/recommended",
+        "plugin:security/recommended",
       ],
       env: {
         jest: true,
@@ -55,6 +59,12 @@ module.exports = {
         ],
         "no-console": "warn",
         "no-debugger": "warn",
+        "jest/no-focused-tests": "warn",
+        "security/detect-non-literal-fs-filename": 0, // produces a lot of false positives
+        "security/detect-object-injection": 0, // discussed in: https://github.com/swarmia/hook/pull/99#discussion_r553338159
+        curly: ["warn", "multi-line"],
+        "no-throw-literal": "error",
+        "object-shorthand": "warn",
       },
       parser: "@typescript-eslint/parser",
     },
@@ -63,27 +73,16 @@ module.exports = {
      * Use this config for node projects.
      */
     node: {
-      plugins: [
-        "security", // TODO: Move to baseline
-        "jest", // TODO: Move to baseline
-      ],
       extends: [
         "plugin:swarmia-dev/baseline", // start from our baseline config
-        "plugin:security/recommended", // TODO: Move to baseline
-        "plugin:jest/recommended", // TODO: Move to baseline
       ],
       env: {
         node: true,
       },
       rules: {
-        // TODO: Move to baseline:
-        "jest/no-focused-tests": "warn",
-        curly: ["warn", "multi-line"],
+        // These could also be promoted to baseline, but we already seem to follow these rules without too much pain for "react" projects:
         "@typescript-eslint/no-explicit-any": 0,
         "@typescript-eslint/ban-types": 0,
-        "no-throw-literal": "error",
-        "object-shorthand": "warn",
-        "security/detect-non-literal-fs-filename": 0,
       },
     },
 
