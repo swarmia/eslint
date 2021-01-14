@@ -63,6 +63,7 @@ module.exports = {
         "security/detect-non-literal-fs-filename": 0, // produces a lot of false positives
         "security/detect-object-injection": 0, // discussed in: https://github.com/swarmia/hook/pull/99#discussion_r553338159
         curly: ["warn", "multi-line"],
+        "no-throw-literal": "error",
       },
       parser: "@typescript-eslint/parser",
     },
@@ -85,7 +86,6 @@ module.exports = {
         // TODO: Move to baseline:
         "@typescript-eslint/no-explicit-any": 0,
         "@typescript-eslint/ban-types": 0,
-        "no-throw-literal": "error",
         "object-shorthand": "warn",
       },
     },
