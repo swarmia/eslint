@@ -73,10 +73,6 @@ module.exports = {
      * Use this config for node projects.
      */
     node: {
-      plugins: [
-        "react", // add React-specific rules
-        "react-hooks", // add rules that help follow https://reactjs.org/docs/hooks-rules.html
-      ],
       extends: [
         "plugin:swarmia-dev/baseline", // start from our baseline config
       ],
