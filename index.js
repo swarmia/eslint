@@ -14,12 +14,14 @@ module.exports = {
       plugins: [
         "@typescript-eslint", // add TypeScript-specific rules
         "prettier", // add Prettier as plugin, so we can use it via ESLint
+        "jest",
       ],
       extends: [
         "eslint:recommended", // start from the default ESLint config
         "plugin:@typescript-eslint/recommended", // add TypeScript-specific default config
         "prettier/@typescript-eslint", // disable TypeScript rules that would clash with how Prettier does formatting
         "plugin:prettier/recommended", // disable JavaScript rules that would clash with how Prettier does formatting
+        "plugin:jest/recommended",
       ],
       env: {
         jest: true,
@@ -55,6 +57,7 @@ module.exports = {
         ],
         "no-console": "warn",
         "no-debugger": "warn",
+        "jest/no-focused-tests": "warn",
       },
       parser: "@typescript-eslint/parser",
     },
@@ -67,19 +70,16 @@ module.exports = {
         "react", // add React-specific rules
         "react-hooks", // add rules that help follow https://reactjs.org/docs/hooks-rules.html
         "security", // TODO: Move to baseline
-        "jest", // TODO: Move to baseline
       ],
       extends: [
         "plugin:swarmia-dev/baseline", // start from our baseline config
         "plugin:security/recommended", // TODO: Move to baseline
-        "plugin:jest/recommended", // TODO: Move to baseline
       ],
       env: {
         node: true,
       },
       rules: {
         // TODO: Move to baseline:
-        "jest/no-focused-tests": "warn",
         curly: ["warn", "multi-line"],
         "@typescript-eslint/no-explicit-any": 0,
         "@typescript-eslint/ban-types": 0,
