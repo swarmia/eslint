@@ -1,14 +1,13 @@
 const corrections = [
   // Simple search & replace:
   ["PR's", "PRs"],
-  [/git hub/i, "GitHub"],
   // Short strings need to be between word boundaries to limit false positives:
   [/\b[Pp]r\b/, "PR"],
   [/\bslack\b/, "Slack"],
   [/\bjira\b/, "Jira"],
   [/\bgithub\b/, "GitHub"],
-  // Some cases depend on context, e.g. is this the first word(s) of a sentence:
-  ["Pull Request", ["pull request", "Pull request"]],
+  // If there's multiple correct spellings, they can all be listed, for example:
+  // ["Pull Request", ["pull request", "Pull request"]],
 ];
 
 module.exports = {
