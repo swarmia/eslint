@@ -28,6 +28,10 @@ Finally, you'll need to make sure the `eslint` working copy has all its dependen
 
 You can now successfully `npm run lint` in the `frontend` repo, while making changes here.
 
+## Developing custom rules
+
+To see how the AST you're matching against looks like, paste your code sample to https://astexplorer.net/ and select either `@babel/parser` or `@typescript-eslint/parser`.
+
 ## Releasing changes
 
 ```

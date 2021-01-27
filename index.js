@@ -5,6 +5,7 @@ module.exports = {
    */
   rules: {
     "no-relative-imports": require("./rules/no-relative-imports"),
+    "use-consistent-spelling": require("./rules/use-consistent-spelling"),
   },
   configs: {
     /**
@@ -41,6 +42,7 @@ module.exports = {
           },
         ],
         "swarmia-dev/no-relative-imports": "error",
+        "swarmia-dev/use-consistent-spelling": "warn",
         "@typescript-eslint/no-shadow": "warn",
         "@typescript-eslint/no-floating-promises": "error",
         "@typescript-eslint/no-submodule-imports": 0,
