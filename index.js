@@ -21,7 +21,7 @@ module.exports = {
       extends: [
         "eslint:recommended", // start from the default ESLint config
         "plugin:@typescript-eslint/recommended", // add TypeScript-specific default config
-        "prettier/@typescript-eslint", // disable TypeScript rules that would clash with how Prettier does formatting
+        "prettier", // disable TypeScript rules that would clash with how Prettier does formatting
         "plugin:prettier/recommended", // disable JavaScript rules that would clash with how Prettier does formatting
         "plugin:jest/recommended",
         "plugin:security/recommended",
