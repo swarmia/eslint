@@ -1,0 +1,23 @@
+#!/bin/bash
+
+set -euo pipefail # exit on error; treat unset variables as errors; exit on errors in piped commands
+
+if [ "$#" -lt 1 ]; then
+  echo "Usage: $(basename $0) REPOSITORY"
+  echo 'Where: REPOSITORY is a repo where to create the PR, e.g. "frontend" or "rapu"'
+  exit 1
+fi
+
+repo="$1"
+dir="$(mktemp -d)"
+branch="bump-eslint-plugin-swarmia-dev"
+
+git clone --depth=1 "git@github.com:swarmia/$repo.git" "$dir"
+cd "$dir"
+git checkout -b "$branch"
+npm install eslint-plugin-swarmia-dev@latest
+git add package.json package-lock.json
+git commit -m "Bump eslint-plugin-swarmia-dev to latest"
+git push -u origin HEAD --force
+open "https://github.com/swarmia/$repo/compare/$branch?expand=1"
+rm -rf "$dir"
