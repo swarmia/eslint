@@ -12,6 +12,8 @@ repo="$1"
 dir="$(mktemp -d)"
 branch="bump-eslint-plugin-swarmia-dev"
 
+set -x
+
 git clone --depth=1 "git@github.com:swarmia/$repo.git" "$dir"
 cd "$dir"
 git checkout -b "$branch"
@@ -19,5 +21,5 @@ npm install eslint-plugin-swarmia-dev@latest
 git add package.json package-lock.json
 git commit -m "Bump eslint-plugin-swarmia-dev to latest"
 git push -u origin HEAD --force
-open "https://github.com/swarmia/$repo/compare/$branch?expand=1"
+open "https://github.com/swarmia/$repo/compare/$branch?expand=1&labels=dependencies" # https://docs.github.com/en/github/managing-your-work-on-github/about-automation-for-issues-and-pull-requests-with-query-parameters#supported-query-parameters
 rm -rf "$dir"

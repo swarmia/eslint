@@ -1,0 +1,27 @@
+#!/bin/bash
+
+set -euo pipefail # exit on error; treat unset variables as errors; exit on errors in piped commands
+
+if [ "$#" -lt 1 ]; then
+  echo "Usage: $(basename $0) TYPE"
+  echo 'Where: TYPE is one of "major", "minor" or "patch"'
+  exit 1
+fi
+
+if [ "$(git diff-index HEAD)" != "" ] || [ "$(git ls-files --others --exclude-standard)" != "" ]; then
+  echo -e "Error: Please make releases with a clean working copy, so unwanted changes or untracked files don't accidentally end up on npm"
+  exit 1
+fi
+
+git checkout master
+git pull --rebase
+npm version "$1"
+git push --tags origin master
+npm publish --dry-run
+
+echo "Do the above package contents look correct?"
+echo "They will be made PUBLICLY AVAILABLE on npm!"
+echo "Press Enter to continue, Ctrl+C to abort."
+read
+
+npm publish
