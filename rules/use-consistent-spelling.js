@@ -6,7 +6,7 @@ const corrections = [
   [/\b[Pp]r\b/, "PR"],
   [/\bslack\b/, "Slack"],
   [/\bjira\b/, "Jira"],
-  [/\bgithub\b/, "GitHub"],
+  [/\b[Gg]ithub\b/, "GitHub"],
   // If there's multiple correct spellings, they can all be listed, for example:
   // ["Pull Request", ["pull request", "Pull request"]],
 ];
