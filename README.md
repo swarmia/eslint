@@ -34,9 +34,10 @@ To see how the AST you're matching against looks like, paste your code sample to
 
 ## Releasing changes
 
+After a new PR has been merged to `master`:
+
 ```
-git checkout master
-npm version patch # or "minor" or "major"
-git push --tags origin master
-npm publish
+./contrib/create-release patch # or "minor" or "major"
+./contrib/create-bump-pr frontend
+./contrib/create-bump-pr rapu
 ```
