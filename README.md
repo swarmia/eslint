@@ -37,7 +37,7 @@ To see how the AST you're matching against looks like, paste your code sample to
 After a new PR has been merged to `master`:
 
 ```
-./contrib/create-release patch # or "minor" or "major"
+./contrib/create-release minor # or "patch" or "major"
 ./contrib/create-bump-pr frontend
 ./contrib/create-bump-pr rapu
 ```
