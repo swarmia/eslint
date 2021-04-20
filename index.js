@@ -108,7 +108,10 @@ module.exports = {
         "react/prop-types": 0,
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "warn",
-        "react/no-unstable-nested-components": "error",
+        "react/no-unstable-nested-components": [
+          "error",
+          { allowAsProps: true }, // <SomeComponent footer={() => <div />} /> should still be allowed
+        ],
       },
       settings: {
         react: {
