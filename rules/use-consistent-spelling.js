@@ -2,11 +2,14 @@ const corrections = [
   // Simple search & replace:
   ["PR's", "PRs"],
   [/(on|at) GitHub/, "in GitHub"], // see https://swarmia.slack.com/archives/CQMQB3R2Q/p1613989715007700?thread_ts=1613988804.005600&cid=CQMQB3R2Q
+  [/sub.*issue/i, "child issue"],
+
   // Short strings need to be between word boundaries to limit false positives:
   [/\b[Pp]r\b/, "PR"],
   [/\bslack\b/, "Slack"],
   [/\bjira\b/, "Jira"],
   [/\b[Gg]ithub\b/, "GitHub"],
+
   // If there's multiple correct spellings, they can all be listed, for example:
   // ["Pull Request", ["pull request", "Pull request"]],
 ];
