@@ -11,6 +11,8 @@ const corrections = [
   // ["Pull Request", ["pull request", "Pull request"]],
 ];
 
+const OPT_REQUIRE_WHITESPACE = "require-whitespace";
+
 module.exports = {
   meta: {
     type: "problem",
@@ -19,7 +21,20 @@ module.exports = {
         "Looks for common misspellings of common terms, in strings that are potentially user-visible",
     },
     fixable: "code",
-    schema: [], // this rule uses no options
+    schema: [
+      {
+        /**
+         * When this option is provided, the rules are relaxed a bit, so that we only consider text
+         * nodes which contain some whitespace. This is a very effective discriminant for false
+         * positives, since a string without any whitespace is somewhat unlikely to be a UI string.
+         *
+         * The downside is that we won't be able to nag about "Github" vs. "GitHub".
+         *
+         * @example "swarmia-dev/use-consistent-spelling": ["error", "require-whitespace"]
+         */
+        enum: [OPT_REQUIRE_WHITESPACE],
+      },
+    ],
   },
   create: (context) => ({
     Literal: matcher(context),
@@ -31,7 +46,11 @@ function matcher(context) {
   return (node) => {
     if (
       typeof node.value !== "string" || // not a string literal -> don't care
-      !node.value.match(/\s/) || // string doesn't include any whitespace -> probably not a user-visible string
+      (context.options.includes(OPT_REQUIRE_WHITESPACE) &&
+        !node.value.match(/\s/)) || // string doesn't include any whitespace -> probably not a user-visible string
+      ["ImportDeclaration", "TSLiteralType"].includes(node.parent.type) || // for certain types of nodes, we can safely conclude they're not user-visible strings
+      (node.parent.type === "JSXAttribute" &&
+        ["className", "key"].includes(node.parent.name.name)) || // for certain types of JSX attributes, we can safely conclude they're not user-visible strings
       context.getFilename().match(/\.test\.tsx?$/) || // it's annoying to nag about consistent spelling in test code -> don't
       node.value.match(/https?:\/\//i) // looks like a URL
     ) {
