@@ -38,6 +38,5 @@ After a new PR has been merged to `master`:
 
 ```
 ./contrib/create-release minor # or "patch" or "major"
-./contrib/create-bump-pr frontend
-./contrib/create-bump-pr rapu
+./contrib/create-bump-prs
 ```
