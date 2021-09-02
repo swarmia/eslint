@@ -53,7 +53,7 @@ function matcher(context) {
         !node.value.match(/\s/)) || // string doesn't include any whitespace -> probably not a user-visible string
       ["ImportDeclaration", "TSLiteralType"].includes(node.parent.type) || // for certain types of nodes, we can safely conclude they're not user-visible strings
       (node.parent.type === "JSXAttribute" &&
-        ["className", "key"].includes(node.parent.name.name)) || // for certain types of JSX attributes, we can safely conclude they're not user-visible strings
+        ["className", "key", "src"].includes(node.parent.name.name)) || // for certain types of JSX attributes, we can safely conclude they're not user-visible strings
       context.getFilename().match(/\.test\.tsx?$/) || // it's annoying to nag about consistent spelling in test code -> don't
       node.value.match(/https?:\/\//i) // looks like a URL
     ) {
