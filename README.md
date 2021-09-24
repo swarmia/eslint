@@ -12,11 +12,11 @@ Often you'll want to develop this repo by testing how your changes would affect 
 
 Assuming you'll want to do that in the `frontend` repo, and you have this repo checked out next to it, what you'll want to do over in `frontend` is:
 
-    rm -rf node_modules/eslint-plugin-swarmia-dev/
-    ln -s ../../eslint/ node_modules/eslint-plugin-swarmia-dev
+    rm -rf node_modules/eslint-plugin-swarmia-dev/ && ln -s ../../eslint/ node_modules/eslint-plugin-swarmia-dev
 
 Note that the following methods **DO NOT WORK**, even if they should be the "official" ways to install local packages:
 
+    # Don't do this:
     npm install eslint-plugin-swarmia-dev@file:../eslint/
     npm install ../eslint
 
