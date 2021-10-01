@@ -108,10 +108,6 @@ module.exports = {
         "react/prop-types": 0,
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "warn",
-        "react/jsx-curly-brace-presence": [
-          "error",
-          { props: "never", children: "never" },
-        ],
         "react/no-unstable-nested-components": [
           "error",
           { allowAsProps: true }, // <SomeComponent footer={() => <div />} /> should still be allowed
