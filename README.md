@@ -34,6 +34,8 @@ To see how the AST you're matching against looks like, paste your code sample to
 
 ## Releasing changes
 
+Make sure you've logged-in to NPM (`npm login`) using the `swarmia` user before running the commands below.
+
 After a new PR has been merged to `master`:
 
 ```
