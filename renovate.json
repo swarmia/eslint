@@ -1,5 +1,18 @@
 {
   "extends": [
-    "config:base"
-  ]
+    "config:base",
+    "schedule:earlyMondays",
+    "group:allNonMajor"
+  ],
+  "labels": [
+    "dependencies"
+  ],
+  "vulnerabilityAlerts": {
+    "schedule": null,
+    "labels": [
+      "security"
+    ]
+  },
+  "stabilityDays": 3,
+  "prCreation": "not-pending"
 }
