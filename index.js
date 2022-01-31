@@ -85,6 +85,10 @@ module.exports = {
         // These could also be promoted to baseline, but we already seem to follow these rules without too much pain for "react" projects:
         "@typescript-eslint/no-explicit-any": 0,
         "@typescript-eslint/ban-types": 0,
+        // Added for node projects, because these settings mostly improve stack traces only in V8,
+        // while possibly adding slight perf overhead in other engines.
+        "no-return-await": "off",
+        "@typescript-eslint/return-await": ["error", "always"],
       },
     },
 
