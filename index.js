@@ -120,6 +120,8 @@ module.exports = {
           "error",
           { allowAsProps: true }, // <SomeComponent footer={() => <div />} /> should still be allowed
         ],
+        "react/jsx-uses-react": "off",
+        "react/react-in-jsx-scope": "off"
       },
       settings: {
         react: {
