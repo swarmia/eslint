@@ -38,7 +38,5 @@ Make sure you've logged-in to NPM (`npm login`) using the `swarmia` user before 
 
 After a new PR has been merged to `master`:
 
-```
-./contrib/create-release minor # or "patch" or "major"
-./contrib/create-bump-prs
-```
+    ./contrib/create-release minor # or "patch" or "major"
+    ./contrib/create-bump-prs
