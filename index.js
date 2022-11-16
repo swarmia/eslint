@@ -61,6 +61,12 @@ module.exports = {
         ],
         "no-console": "warn",
         "no-debugger": "warn",
+        "no-sequences": [
+          "error",
+          {
+            "allowInParentheses": false
+          }
+        ],
         "jest/no-focused-tests": "warn",
         "security/detect-non-literal-fs-filename": 0, // produces a lot of false positives
         "security/detect-object-injection": 0, // discussed in: https://github.com/swarmia/hook/pull/99#discussion_r553338159
