@@ -14,19 +14,22 @@ Assuming you'll want to do that in the `frontend` repo, and you have this repo c
 
     rm -rf node_modules/eslint-plugin-swarmia-dev/ && ln -s ../../eslint/ node_modules/eslint-plugin-swarmia-dev
 
-Note that the following methods **DO NOT WORK**, even if they should be the "official" ways to install local packages:
+Finally, you'll need to make sure the `eslint` working copy has all its dependencies installed locally:
+
+    cd node_modules/eslint-plugin-swarmia-dev
+    npm install
+
+It's best to do this via the new symlink instead of `cd ../eslint` to ensure the same node version is used in eslint and the repo to be tested.
+
+You can now successfully `npm run lint` in the `frontend` repo, while making changes here.
+
+**Note** that the following methods **DO NOT WORK**, even if they should be the "official" ways to install local packages:
 
     # Don't do this:
     npm install eslint-plugin-swarmia-dev@file:../eslint/
     npm install ../eslint
 
 Feel free to improve these instructions if you figure out why.
-
-Finally, you'll need to make sure the `eslint` working copy has all its dependencies installed locally:
-
-    npm install
-
-You can now successfully `npm run lint` in the `frontend` repo, while making changes here.
 
 ## Developing custom rules
 
