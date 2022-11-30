@@ -4,5 +4,6 @@ set -euo pipefail # exit on error; treat unset variables as errors; exit on erro
 
 ./contrib/create-bump-pr rapu &
 ./contrib/create-bump-pr frontend &
+./contrib/create-bump-pr admin &
 
 wait

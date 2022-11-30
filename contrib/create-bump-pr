@@ -17,7 +17,7 @@ set -x
 git clone --depth=1 "git@github.com:swarmia/$repo.git" "$dir"
 cd "$dir"
 git checkout -b "$branch"
-npm install eslint-plugin-swarmia-dev@latest
+npm install --save-exact eslint-plugin-swarmia-dev@latest
 git add package.json package-lock.json
 git commit -m "Bump eslint-plugin-swarmia-dev to latest"
 git push -u origin HEAD --force
