@@ -69,6 +69,20 @@ module.exports = {
           }
         ],
         "jest/no-focused-tests": "warn",
+        "jest/no-standalone-expect": [
+          "error",
+          {
+            "additionalTestBlockFunctions": [
+              // Sometimes, tests want to share expectations:
+              "afterAll",
+              "afterEach",
+              "beforeAll",
+              "beforeEach",
+              // This is also a legit custom test block:
+              "transactionalTest"
+            ]
+          }
+        ],
         "security/detect-non-literal-fs-filename": 0, // produces a lot of false positives
         "security/detect-object-injection": 0, // discussed in: https://github.com/swarmia/hook/pull/99#discussion_r553338159
         curly: ["warn", "multi-line"],
