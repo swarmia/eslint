@@ -33,11 +33,11 @@ Feel free to improve these instructions if you figure out why.
 
 ## Developing custom rules
 
-To see how the AST you're matching against looks like, paste your code sample to https://astexplorer.net/ and select either `@babel/parser` or `@typescript-eslint/parser`.
+To see how the AST you're matching against looks like, paste your code sample to <https://astexplorer.net/> and select either `@babel/parser` or `@typescript-eslint/parser`.
 
 ## Releasing changes
 
-Make sure you've logged-in to NPM (`npm login`) using the `swarmia` user before running the commands below.
+Make sure you've logged-in to NPM (`npm login --auth-type=legacy`) using the `swarmia` user before running the commands below.
 
 After a new PR has been merged to `master`:
 
