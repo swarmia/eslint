@@ -61,6 +61,7 @@ module.exports = {
           },
         ],
         "no-console": "warn",
+        "no-return-assign": ["error", "always"],
         "no-debugger": "warn",
         "no-sequences": [
           "error",
