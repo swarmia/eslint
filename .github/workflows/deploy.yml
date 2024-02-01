@@ -2,6 +2,8 @@ name: Swarmia ESLint Deploy
 
 on:
   push:
+    branches:
+      - main
 
 jobs:
   deploy-main:
@@ -10,4 +12,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Do work
-        run: sleep 60 # for testing CI times
+        run: sleep 90 # for testing CI times
