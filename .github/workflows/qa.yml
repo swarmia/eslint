@@ -1,4 +1,4 @@
-name: eslint QA
+name: Swarmia ESLint QA
 
 on:
   pull_request:

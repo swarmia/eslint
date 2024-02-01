@@ -1,0 +1,13 @@
+name: Swarmia ESLint Deploy
+
+on:
+  push:
+
+jobs:
+  deploy-main:
+    name: Deploy Main
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Do work
+        run: sleep 60 # for testing CI times
