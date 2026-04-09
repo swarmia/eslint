@@ -14,15 +14,12 @@ module.exports = {
     baseline: {
       plugins: [
         "@typescript-eslint", // add TypeScript-specific rules
-        "prettier", // add Prettier as plugin, so we can use it via ESLint
         "jest",
         "security",
       ],
       extends: [
         "eslint:recommended", // start from the default ESLint config
         "plugin:@typescript-eslint/recommended", // add TypeScript-specific default config
-        "prettier", // disable TypeScript rules that would clash with how Prettier does formatting
-        "plugin:prettier/recommended", // disable JavaScript rules that would clash with how Prettier does formatting
         "plugin:jest/recommended",
         "plugin:security/recommended",
       ],
@@ -31,17 +28,6 @@ module.exports = {
         es6: true,
       },
       rules: {
-        "prettier/prettier": [
-          "warn",
-          {
-            singleQuote: true,
-            semi: false,
-            tabWidth: 2,
-            printWidth: 80,
-            trailingComma: "all",
-            arrowParens: "avoid",
-          },
-        ],
         "swarmia-dev/no-relative-imports": "error",
         "swarmia-dev/use-consistent-spelling": "warn",
         "@typescript-eslint/no-shadow": "warn",
