@@ -26,6 +26,6 @@
     "eslint-plugin-react-hooks": "4.6.0",
     "eslint-plugin-security": "1.7.1",
     "eslint-webpack-plugin": "4.0.1",
-    "typescript": "5.3.3"
+    "typescript": "7.0.2"
   }
 }
